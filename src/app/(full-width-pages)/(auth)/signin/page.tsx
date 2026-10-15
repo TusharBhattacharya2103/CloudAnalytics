@@ -1,5 +1,6 @@
+import { Suspense } from "react";
+import type { Metadata } from "next";
 import SignInForm from "@/components/auth/SignInForm";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Next.js SignIn Page | TailAdmin - Next.js Dashboard Template",
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function SignIn() {
-  return <SignInForm />;
+  return (
+    <Suspense fallback={<div>Loading sign in...</div>}>
+      <SignInForm />
+    </Suspense>
+  );
 }
